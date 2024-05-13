@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Clients{% endblock %}
+
+{% block body %}
+<style>
+.col{
+    margin:10px;
+}
+</style>
+{{ form_start(form) }}
+
+ <div class="col">
+   {{ form_row(form.prenom) }}
+ </div>
+
+  <div class="col">
+   <div class="form-group">
+      <button type="submit" class="btn btn-dark">Rechercher</button>
+    </div>
+ </div>
+
+ {{ form_end(form) }}
+    {% if client %}
+        <table id="client" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>sexe</th>
+                <th>id_type</th>
+                <th>id_file</th>
+                <th>date_delivre</th>
+                <th>num_pass</th>
+                <th>date_naissance</th>
+                <th>nationalite</th>
+                <th>adresse</th>
+                <th>telephone</th>
+                <th>Actions</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                {% for c in client %}
+                    <tr>
+                        <td> {{ c.nom }} </td>
+                        <td> {{ c.prenom }} </td>
+                        <td>{{c.sexe}}</td>
+                        <td>{{c.IdType}}</td>
+                        <td>{{c.IdFile}}</td>
+                        <td>{{c.DateDelivre|date('Y-m-d')}}</td>
+                        <td>{{c.NumPass}}</td>
+                        <td>{{c.DateNaissance|date('Y-m-d')}}</td>
+                        <td>{{c.nationalite}}</td>
+                        <td>{{c.adresse}}</td>
+                        <td>{{c.telephone}}</td>
+                        <td>
+                            <a href="/client{{ c.id }}" class="btn btn-dark">détails</a>
+                            <a href="/client/edit{{ c.id }}" class="btn btn-dark">Modifier</a>
+                            <a href="/client/{{ c.id }}" class="btn btn-danger"
+                            onclick="return confirm ('Etes-vous sûr de supprimer ce client?');">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun client</p>
+    {% endif %}
+{% endblock %}

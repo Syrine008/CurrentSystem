@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier Cours{% endblock %}
+{% block body %}
+<style>
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top:100px;
+}
+
+/* Style des champs */
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Style du bouton */
+form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #885cc3;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style du bouton au survol */
+form button[type="submit"]:hover {
+    background-color: #333;
+}
+
+/* Style du bouton au clic */
+form button[type="submit"]:active {
+    background-color: #333;
+}
+
+</style>
+{{ form_start((form)) }}
+{{ form_widget((form)) }}
+<button type="submit" class="btn btn-success">Modifier</button>
+{{ form_end ((form)) }}
+{% endblock %}

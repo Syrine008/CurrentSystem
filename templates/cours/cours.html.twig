@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Cours de Change {% endblock %}
+
+{% block body %}
+<style>
+table{
+    margin-top:30px;
+}
+th,td {
+  text-align: center;
+}
+th{
+    background-color:white;
+}
+
+</style>
+
+    {% if cours %}
+        <table id="cours" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Unité</th>
+                <th>Achat</th>
+                <th>Vente</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for c in cours %}
+                    <tr>
+                        <td>{{ c.devise.getNomDevise() }}</td>
+                        <td>{{ c.devise.getUnité() }}</td>
+                        <td>
+                            {{ c.PrixAchat }}
+                        </td>
+                        <td>
+                            {{ c.PrixVente }}                            
+                        </td>
+
+                        <td>
+                            <a href="{{ path('cours_edit', {'id': c.id}) }}"><img src={{asset('media/pen.png')}} width="30px" height="35vh"></a>
+                            <!--<a href="{{ path('cours_edit', {'id': c.id}) }}" class="btn btn-dark">Modifier</a>-->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun Cours</p>
+    {% endif %}
+{% endblock %}
+
+

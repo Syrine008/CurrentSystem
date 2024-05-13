@@ -1,0 +1,32 @@
+<style>
+.nav-link{
+  margin-left:10px;
+  margin-right:10px;
+  font-weight: bold;
+  color: #000000;
+}
+#logout{
+   color:#885cc3;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light"id= "mainNav">
+    <a class="navbar-brand" href="{{path('app_index_index')}}">
+    <img src="media/Group1.png" width="100" height="30" class="d-inline-block align-top" alt="">
+     </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" href="{{path('app_index_index')}}">Accueil <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="{{path('app_achat')}}">Achat</a>
+      <a class="nav-link" href="{{path('app_vente')}}">Vente</a>
+      <a class="nav-link" href="{{path('app_cours')}}">Cours</a>
+      <a class="nav-link" href="#">Stock</a>
+      <a class="nav-link" href="#">Transaction</a>
+      <a class="nav-link" href="{{path('app_client')}}">Client</a>
+      <a class="nav-link" href="#">Banque</a>
+      <a class="nav-link" id="logout" href="{{path('app_logout')}}">Logout</a>
+    </div>
+  </div>
+</nav>
